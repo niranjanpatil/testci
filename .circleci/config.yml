@@ -1,7 +1,7 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/circleci-feature9
+    working_directory: ~/testci
     docker:
       - image: maven:3.5.2-jdk-8
 
