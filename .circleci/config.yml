@@ -1,8 +1,21 @@
 version: 2
 jobs:
   build:
+    working_directory: ~/circleci-feature9
     docker:
-      - image: circleci/ruby:2.4.1
+      - image: maven:3.5.2-jdk-8
+
     steps:
       - checkout
+
+      - restore_cache:
+          key: circleci-feature9-{{ checksum "pom.xml" }}
+
       - run: mvn test
+
+      - save_cache:
+          paths:
+            - ~/.m2
+          key: circleci-feature9-{{ checksum "pom.xml" }}
+
+      - store_test_results:
