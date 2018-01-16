@@ -1,5 +1,6 @@
 package com.mytest;
 
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 /**
@@ -11,5 +12,11 @@ public class SimpleTest {
     public void myTest()
     {
         System.out.println("My first test using testNG !!");
+    }
+
+    @Test
+    public void negativeTest()
+    {
+        Assert.fail("Failing test case !!");
     }
 }
